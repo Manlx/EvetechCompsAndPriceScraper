@@ -5,13 +5,15 @@ class Components:
     Name = ""
     Price = 0
     Model = ""
-    def __init__(self,name,price):
+    Supplier = ''
+    def __init__(self,name,price,SupplierName):
         self.Name = name
         self.Price = price
         self.Model = IdentifyModel(self.Name)
+        self.Supplier = SupplierName
 ##    @classmethod
     def GetToString(self):
-        return "Name: {}\nPrice: {}\nModel: {}".format(self.Name,self.Price,self.Model)
+        return "Name: {}\nPrice: {}\nModel: {}\nSupplier: {}".format(self.Name,self.Price,self.Model,self.Supplier)
 def IdentifyModel(Name):
     for x in Models:
         if (x in Name):

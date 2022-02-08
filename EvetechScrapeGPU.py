@@ -1,7 +1,7 @@
 from urllib.request import Request, urlopen
 #Requests Website
 def CollectCompAndPrice(URL,EnableVerbose = False):
-    req = Request(URL, headers={'User-Agent': 'Mozilla/5.0'})
+    req = Request(URL, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'})
     webpage = urlopen(req).read().decode("utf8")
     Lines = webpage.split('\n')
     Count = 0;
@@ -75,3 +75,4 @@ def CollectCompAndPrice(URL,EnableVerbose = False):
     if (EnableVerbose):
         print(len(Lines))
     return Lines
+print(CollectCompAndPrice('https://www.evetech.co.za/components/monitor-87.aspx'))
