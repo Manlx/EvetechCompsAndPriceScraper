@@ -1,15 +1,19 @@
+from GetModels import ReadModels
+global Models
+Models = ReadModels()
 class Components:
     Name = ""
     Price = 0
-    
-    def __init__(self):
-        print("Comp Created")
-        self.Name = "Thicss"
-        self.Price = 420
+    Model = ""
     def __init__(self,name,price):
-        print("LOL")
         self.Name = name
         self.Price = price
+        self.Model = IdentifyModel(self.Name)
 ##    @classmethod
     def GetToString(self):
-        return "Name: {}\nPrice: {}".format(self.Name,self.Price)
+        return "Name: {}\nPrice: {}\nModel: {}".format(self.Name,self.Price,self.Model)
+def IdentifyModel(Name):
+    for x in Models:
+        if (x in Name):
+            break
+    return x;

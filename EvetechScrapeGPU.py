@@ -1,6 +1,6 @@
 from urllib.request import Request, urlopen
 #Requests Website
-def CollectCompAndPrice(URL,EnableVerbose):
+def CollectCompAndPrice(URL,EnableVerbose = False):
     req = Request(URL, headers={'User-Agent': 'Mozilla/5.0'})
     webpage = urlopen(req).read().decode("utf8")
     Lines = webpage.split('\n')
@@ -72,5 +72,6 @@ def CollectCompAndPrice(URL,EnableVerbose):
 ##    for x in range(len(Lines)-1,-1,-1):
 ##        if (not(Lines[x])):
 ##            Lines.pop(x)
-    print(len(Lines))
+    if (EnableVerbose):
+        print(len(Lines))
     return Lines
